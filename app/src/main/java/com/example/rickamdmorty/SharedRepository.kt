@@ -8,10 +8,14 @@ class SharedRepository {
     suspend fun getCharacterById(characterID: Int): GetCharacterByIdResponse?{
         val request = NetworkLayer.apiClient.getCharacterById(characterID)
 
-        if(request.isSuccessful){
-            return request.body()!!
+        if (request.failed){
+            return null
         }
 
-        return null
+        if(!request.isSuccessful){
+            return null
+        }
+
+        return request.body
     }
 }

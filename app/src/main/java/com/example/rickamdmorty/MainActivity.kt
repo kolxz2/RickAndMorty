@@ -57,5 +57,5 @@ class MainActivity : AppCompatActivity() {
             Picasso.get().load(response.image).into(binding.characterIcon)
 
         }
-            }
+    }
 }
